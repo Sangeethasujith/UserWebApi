@@ -3,3 +3,8 @@
 ################################################################################
 
 /Data/obj
+/UserApi/bin/Debug/netcoreapp3.1
+/UserApi/obj
+/UserWebApi/bin/Debug
+/UserWebApi/obj
+/.vs/UserWebApi
