@@ -31,5 +31,47 @@ namespace UserApi.Controllers
         {
             return _users.GetUser(id);
         }
+
+        [HttpPost]
+        public ActionResult Post(User user)
+        {
+            if (user == null)
+            {
+                return BadRequest("User is null.");
+            }
+            _users.Add(user);
+            return Ok(user);
+        }
+
+
+        [HttpPut("{id}")]
+        public ActionResult Put(int id, User user)
+        {
+            if (user == null)
+            {
+                return BadRequest("User is null.");
+            }
+            User updateUser = _users.GetUser(id);
+            if(updateUser == null)
+            {
+                return NotFound("User is not found");
+            }
+            _users.Update(updateUser,user);
+            return Ok(user);
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            User user = _users.GetUser(id);
+            if (user == null)
+            {
+                return NotFound("The User record couldn't be found.");
+            }
+            _users.Delete(user);
+            return Ok(user);
+        }
+
+
     }
 }

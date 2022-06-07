@@ -10,6 +10,8 @@ namespace Data.Repository
     {
         List<User> GetAllUsers();
         public User GetUser(int id);
-
+         void Add(User user);
+        void Update(User user, User entity);
+        void Delete(User user);
     }
 }
